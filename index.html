@@ -851,7 +851,9 @@
         <p>© ٢٠٢٥ جميع الحقوق محفوظة</p>
         <p style="margin-top: 1rem; font-size: 0.9rem;">العدالة والنزاهة والمهنية - قيمنا الأساسية</p>
     </footer>
+    </footer>
 
+    <script>
         // Smooth scroll for scroll indicator
         document.querySelector('.scroll-indicator').addEventListener('click', function() {
             document.querySelector('.qualifications').scrollIntoView({ behavior: 'smooth' });
@@ -873,4 +875,12 @@
         }, observerOptions);
 
         // Observe all cards and items
-        document.querySelectorAll('.qual-card, .service-item, .contact-item').forEach(e
+        document.querySelectorAll('.qual-card, .service-item, .contact-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
