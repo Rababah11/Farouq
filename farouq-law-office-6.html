@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتب المحامي فاروق محمد الربابعة - المحامي والمستشار القانوني</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #C9A961;
+            --dark-navy: #1a2332;
+            --light-navy: #2d3e50;
+            --warm-white: #f8f6f3;
+            --text-dark: #2c2c2c;
+            --accent-bronze: #8B7355;
+            --shadow-color: rgba(26, 35, 50, 0.15);
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--warm-white);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--dark-navy) 0%, var(--light-navy) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(201, 169, 97, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(201, 169, 97, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A961' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            max-width: 1200px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-logo {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--primary-gold);
+            box-shadow: 0 20px 60px rgba(201, 169, 97, 0.4);
+            animation: scaleIn 1s ease-out 0.3s both;
+            background: white;
+        }
+
+        .hero-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero h1 {
+            font-family: 'Amiri', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .hero h2 {
+            font-family: 'Cairo', sans-serif;
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-weight: 300;
+            color: var(--primary-gold);
+            margin-bottom: 2rem;
+        }
+
+        .credentials {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(201, 169, 97, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem 3rem;
+            margin-top: 2rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .credentials p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin: 0.5rem 0;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 30px;
+            height: 50px;
+            border: 2px solid var(--primary-gold);
+            border-radius: 25px;
+            position: relative;
+        }
+
+        .scroll-indicator span::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--primary-gold);
+            border-radius: 50%;
+            animation: scrollDot 2s infinite;
+        }
+
+        /* Qualifications Section */
+        .qualifications {
+            padding: 6rem 2rem;
+            background: white;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--dark-navy);
+            margin-bottom: 1rem;
+            position: relative;
+            display: block;
+            width: 100%;
+            padding: 0 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-gold), var(--accent-bronze));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--accent-bronze);
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            margin-bottom: 4rem;
+            font-weight: 300;
+            padding: 0 1rem;
+        }
+
+        .qual-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .qual-card {
+            background: linear-gradient(135deg, var(--warm-white) 0%, white 100%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 2px solid rgba(201, 169, 97, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .qual-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+        }
+
+        .qual-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px var(--shadow-color);
+            border-color: var(--primary-gold);
+        }
+
+        .qual-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--accent-bronze));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .qual-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        .qual-card h3 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark-navy);
+            margin-bottom: 1rem;
+        }
+
+        .qual-card p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--dark-navy) 0%, var(--light-navy) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23C9A961' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .services .section-title,
+        .services .section-subtitle {
+            color: white;
+        }
+
+        .services .section-subtitle {
+            color: var(--primary-gold);
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(201, 169, 97, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(201, 169, 97, 0.2), transparent);
+            border-radius: 0 20px 0 100%;
+        }
+
+        .service-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-item h3 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-item h3::before {
+            content: '◆';
+            font-size: 0.8rem;
+        }
+
+        .service-item p {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            width: 100%;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--warm-white) 0%, white 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 2px solid rgba(201, 169, 97, 0.2);
+            width: 100%;
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+            padding-right: 3.5rem;
+            position: relative;
+        }
+
+        .contact-item::before {
+            content: attr(data-icon);
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--accent-bronze));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .contact-item h3 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item p {
+            color: #2c2c2c;
+            line-height: 1.8;
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        .contact-item a {
+            color: var(--dark-navy);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 700;
+            direction: ltr;
+            text-align: right;
+            padding: 0.3rem 0;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-gold);
+            transform: translateX(-5px);
+        }
+
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(201, 169, 97, 0.2);
+            background: var(--warm-white);
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .map-placeholder {
+            text-align: center;
+            color: var(--accent-bronze);
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .map-placeholder svg {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary-gold), var(--accent-bronze));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3);
+        }
+
+        .map-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(201, 169, 97, 0.5);
+        }
+
+        .map-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-navy);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        footer .logo-text {
+            font-family: 'Amiri', serif;
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        @keyframes scrollDot {
+            0% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(20px);
+            }
+        }
+
+        /* Responsive */
+        .services .section-title,
+        .services .section-subtitle {
+            color: white;
+        }
+
+        .services .section-subtitle {
+            color: var(--primary-gold);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 90vh;
+            }
+
+            .hero-content {
+                padding: 1.5rem;
+            }
+
+            .hero-logo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .credentials {
+                padding: 1.5rem 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                padding: 0 0.5rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.95rem;
+                padding: 0 1rem;
+                margin-bottom: 3rem;
+            }
+
+            .qualifications,
+            .services,
+            .contact {
+                padding: 4rem 1rem;
+            }
+
+            .qual-grid,
+            .services-grid,
+            .contact-container {
+                grid-template-columns: 1fr;
+                padding: 0;
+                margin: 0 auto;
+                max-width: 100%;
+            }
+
+            .qual-card,
+            .service-item,
+            .contact-info,
+            .map-container {
+                margin: 0 auto;
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .contact-item {
+                padding-right: 4rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .contact-item a {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            .map-container {
+                min-height: 300px;
+                padding: 1.5rem;
+            }
+
+            .map-placeholder {
+                padding: 0;
+            }
+
+            .map-placeholder h3 {
+                font-size: 1.3rem;
+            }
+
+            .map-placeholder p {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection Color */
+        ::selection {
+            background: var(--primary-gold);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="images/lawyer-photo.jpg">
+            </div>
+            <h1>المحامي فاروق محمد الربابعة</h1>
+            <h2>المحامي والمستشار القانوني</h2>
+            
+            <div class="credentials">
+                <p>إجازة في القانون - جامعة محمد الخامس / المغرب ١٩٧٩</p>
+                <p>ليسانس في الشريعة الإسلامية - جامعة القرويين / المغرب ١٩٧٩</p>
+                <p>ماجستير في القانون - الجامعة الأردنية ١٩٨٤</p>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Qualifications Section -->
+    <section class="qualifications">
+        <h2 class="section-title">المؤهلات والخبرات</h2>
+        <p class="section-subtitle">خبرة قانونية ممتدة لأكثر من أربعة عقود</p>
+        
+        <div class="qual-grid">
+            <div class="qual-card">
+                <div class="qual-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" fill="white"/>
+                    </svg>
+                </div>
+                <h3>المؤهلات الأكاديمية</h3>
+                <p>حاصل على إجازة في القانون وليسانس في الشريعة الإسلامية من المغرب، وماجستير في القانون من الجامعة الأردنية.</p>
+            </div>
+
+            <div class="qual-card">
+                <div class="qual-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="white"/>
+                    </svg>
+                </div>
+                <h3>الخبرة العسكرية</h3>
+                <p>عمل في القوات المسلحة الأردنية من العام ١٩٧٩ - لغاية العام ٢٠٠٠م، مما أكسبه خبرة قانونية في المجال العسكري.</p>
+            </div>
+
+            <div class="qual-card">
+                <div class="qual-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z" fill="white"/>
+                    </svg>
+                </div>
+                <h3>التطوير المهني</h3>
+                <p>دخل العديد من الدورات الداخلية والخارجية في مجال التحقيقات والمرافعات، مما يعزز كفاءته القانونية.</p>
+            </div>
+
+            <div class="qual-card">
+                <div class="qual-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 2v20c-5.07-.5-9-4.79-9-10s3.93-9.5 9-10zm2.03 0v8.99H22c-.47-4.74-4.24-8.52-8.97-8.99zm0 11.01V22c4.74-.47 8.5-4.25 8.97-8.99h-8.97z" fill="white"/>
+                    </svg>
+                </div>
+                <h3>مزاولة المهنة</h3>
+                <p>ممارس لمهنة المحاماة من العام ٢٠٠٤ ولغاية الآن، مع سجل حافل بالقضايا الناجحة.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h2 class="section-title">مجالات الممارسة</h2>
+        <p class="section-subtitle">خدمات قانونية شاملة ومتخصصة</p>
+        
+        <div class="services-grid">
+            <div class="service-item">
+                <h3>القضايا الجزائية</h3>
+                <p>تمثيل قانوني متخصص في كافة أنواع القضايا الجزائية والجنائية بمختلف درجاتها.</p>
+            </div>
+
+            <div class="service-item">
+                <h3>القضايا المدنية والحقوقية</h3>
+                <p>المرافعة في القضايا المدنية والحقوقية بأنواعها المختلفة وفق أحدث التشريعات.</p>
+            </div>
+
+            <div class="service-item">
+                <h3>قضايا الجمارك</h3>
+                <p>خبرة واسعة في التعامل مع القضايا الجمركية والنزاعات المتعلقة بها.</p>
+            </div>
+
+            <div class="service-item">
+                <h3>قضايا ضريبة الدخل</h3>
+                <p>استشارات ومرافعات في القضايا الضريبية والنزاعات مع دائرة ضريبة الدخل.</p>
+            </div>
+
+            <div class="service-item">
+                <h3>الاستشارات القانونية</h3>
+                <p>تقديم استشارات قانونية متخصصة للأفراد والشركات في مختلف المجالات.</p>
+            </div>
+
+            <div class="service-item">
+                <h3>القضايا الشرعية</h3>
+                <p>المرافعة في القضايا الشرعية بمختلف أنواعها استناداً للشريعة الإسلامية.</p>
+            </div>
+
+            <div class="service-item">
+                <h3>قضايا أمن الدولة</h3>
+                <p>خبرة في التعامل مع القضايا الحساسة المتعلقة بأمن الدولة.</p>
+            </div>
+
+            <div class="service-item">
+                <h3>تسجيل الشركات</h3>
+                <p>خدمات تأسيس وتسجيل الشركات بمختلف أنواعها ومتابعة إجراءاتها.</p>
+            </div>
+
+            <div class="service-item">
+                <h3>تحصيل الإيجارات</h3>
+                <p>متابعة وتحصيل الإيجارات والمستحقات المالية بالطرق القانونية.</p>
+            </div>
+
+            <div class="service-item">
+                <h3>كتابة العقود والاتفاقيات</h3>
+                <p>صياغة العقود والاتفاقيات القانونية بدقة ومهنية عالية.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <h2 class="section-title">معلومات التواصل</h2>
+        <p class="section-subtitle">نحن في خدمتكم للإجابة على استفساراتكم القانونية</p>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item" data-icon="📍">
+                    <h3>العنوان</h3>
+                    <p>الأردن - عمان</p>
+                    <p>شارع الجامعة الأردنية - مقابل محكمة شمال عمان</p>
+                    <p>عمارة عكاوي وبداد التجارية رقم ٣٤٩</p>
+                    <p>بنفس عمارة البنك العربي الإسلامي</p>
+                    <p>الطابق الثاني - مكتب ٢٠٤</p>
+                </div>
+
+                <div class="contact-item" data-icon="📞">
+                    <h3>أرقام الهواتف</h3>
+                    <p><a href="tel:+962772054367">+962 77 205 4367</a></p>
+                    <p><a href="tel:+962797795076">+962 79 779 5076</a></p>
+                </div>
+
+                <div class="contact-item" data-icon="✉️">
+                    <h3>البريد الإلكتروني</h3>
+                    <p><a href="/cdn-cgi/l/email-protection#094f687b667c7868657b686b686b6861496e64686065276a6664"><span class="__cf_email__" data-cfemail="bff9decdd0caceded3cddedddeddded7ffd8d2ded6d391dcd0d2">[email&#160;protected]</span></a></p>
+                </div>
+
+                <div class="contact-item" data-icon="🕐">
+                    <h3>ساعات العمل</h3>
+                    <p>السبت - الخميس:</p>
+                    <p style="font-weight: 600; color: var(--dark-navy);">9:00 صباحاً - 2:00 ظهراً</p>
+                    <p style="font-weight: 600; color: var(--dark-navy);">3:30 عصراً - 6:30 مساءً</p>
+                    <p style="margin-top: 0.8rem;">الجمعة: مغلق</p>
+                    <p style="margin-top: 0.8rem; color: var(--primary-gold); font-weight: 600;">⚠️ يُفضل أخذ موعد مسبق</p>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <h3>موقع المكتب</h3>
+                    <p style="font-weight: 600; color: var(--dark-navy); margin-bottom: 0.5rem;">مقابل محكمة شمال عمان</p>
+                    <p style="margin-bottom: 0.3rem;">عمارة عكاوي وبداد التجارية رقم ٣٤٩</p>
+                    <p style="margin-bottom: 0.3rem;">بنفس عمارة البنك العربي الإسلامي</p>
+                    <p style="margin-bottom: 0.3rem;">الطابق الثاني - مكتب ٢٠٤</p>
+                    <p style="font-weight: 600; color: var(--primary-gold); margin-top: 0.8rem;">شارع الجامعة الأردنية</p>
+                    <a href="https://maps.app.goo.gl/hguypAATgRwiVX888" target="_blank" class="map-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        افتح الموقع في Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="logo-text">مكتب المحامي فاروق محمد الربابعة</div>
+        <p>المحامي والمستشار القانوني</p>
+        <p>© ٢٠٢٥ جميع الحقوق محفوظة</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">العدالة والنزاهة والمهنية - قيمنا الأساسية</p>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scroll for scroll indicator
+        document.querySelector('.scroll-indicator').addEventListener('click', function() {
+            document.querySelector('.qualifications').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Fade in animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and items
+        document.querySelectorAll('.qual-card, .service-item, .contact-item').forEach(e
